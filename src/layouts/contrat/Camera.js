@@ -31,7 +31,7 @@ const Camera = () => {
     console.log(e);
   };
 
-  if (goto) return <Navigate to="/success" />
+  if (goto) return <Navigate to="/charger-document" />
 
   return (
     <>
