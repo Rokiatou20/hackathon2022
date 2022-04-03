@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import Webcam from "react-webcam";
-import jsQR from "jsqr";
+import axios from 'axios'
+
+
+
+
+
+
 
 const videoConstraints = {
   width: 540,
@@ -13,6 +19,14 @@ const Camera = () => {
 
   const capturePhoto = React.useCallback(async () => {
     const imageSrc = webcamRef.current.getScreenshot();
+          
+    console.log(imageSrc)
+    axios
+    .post('http://localhost:8888', {name: imageSrc})
+    .then(() => console.log('Image envoyé'))
+    .catch(err => {
+      console.error(err);
+    });
     setUrl(imageSrc);
   }, [webcamRef]);
 
@@ -29,13 +43,15 @@ const Camera = () => {
         videoConstraints={videoConstraints}
         onUserMedia={onUserMedia}
       />
-      <button onClick={capturePhoto}>Capture</button>
-      <button onClick={() => setUrl(null)}>Refresh</button>
-      {url && (
-        <div>
-          <img src={url} alt="Screenshot" />
-        </div>
-      )}
+
+        <button onClick={capturePhoto}>Capture</button>
+        <button onClick={() => setUrl(null)}>Refresh</button>
+        {url && (
+          <div>
+            <img src={url} alt="Screenshot" />
+          </div>
+        )}
+
     </>
   );
 };
