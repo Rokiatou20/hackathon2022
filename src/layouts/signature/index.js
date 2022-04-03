@@ -26,13 +26,17 @@ import MDTypography from "components/MDTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import DataTable from "examples/Tables/DataTable";
-
+import { useState } from "react";
 // Data
 import authorsTableData from "layouts/signature/data/authorsTableData";
 
+// react-router components
+import { Navigate } from "react-router-dom";
+
 function Tables() {
   const { columns, rows } = authorsTableData();
-
+  const [state, setState] = useState(false);
+  if (state) return <Navigate to="/nouvelle-signature" />;
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -53,8 +57,25 @@ function Tables() {
                 <MDTypography variant="h6" color="white">
                   LISTE DES CONTRATS
                 </MDTypography>
-                <MDBox variant="h6" color="white">
-                  <Icon color="white">add</Icon>
+                <MDBox
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  width="1.7rem"
+                  height="1.7rem"
+                  bgColor="white"
+                  shadow="sm"
+                  borderRadius="50%"
+                  position="fixed"
+                  top="133px"
+                  right="60px"
+                  color="white"
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => setState(true)}
+                >
+                  <Icon fontSize="large" color="info">
+                    add
+                  </Icon>
                 </MDBox>
               </MDBox>
               <MDBox pt={3}>

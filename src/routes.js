@@ -41,11 +41,11 @@ import Tables from "layouts/tables";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import App from "layouts/contrat/App";
+import NewSignature from "layouts/signature/nouveau";
+import Signature from "layouts/signature";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
-import Signature from "layouts/signature";
-
 
 const routes = [
   {
@@ -95,6 +95,12 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+  },
+  {
+    name: "newSignature",
+    key: "newSignature",
+    route: "/nouvelle-signature",
+    component: <NewSignature />,
   },
 ];
 
