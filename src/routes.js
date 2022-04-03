@@ -37,15 +37,16 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
-import App from "layouts/contrat/App";
+import Webcam from "layouts/contrat/App";
 import NewSignature from "layouts/signature/nouveau";
 import Signature from "layouts/signature";
+import LecteurQR from "layouts/lecteurqrcode/App";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import QrCodeScannerIcon from "@mui/icons-material/QrCodeScanner";
 
 const routes = [
   {
@@ -70,7 +71,7 @@ const routes = [
     key: "sign-up",
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
-    component: <App />,
+    component: <Webcam />,
   },
   {
     type: "collapse",
@@ -82,19 +83,19 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Historiques",
-    key: "tables",
-    icon: <Icon fontSize="small">table_view</Icon>,
-    route: "/tables",
-    component: <Tables />,
-  },
-  {
-    type: "collapse",
     name: "Dashboard",
     key: "dashboard",
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+  },
+  {
+    type: "collapse",
+    name: "Scanner QR",
+    key: "scannerqr",
+    icon: <QrCodeScannerIcon fontSize="small" />,
+    route: "/scanner_qr",
+    component: <LecteurQR />,
   },
   {
     name: "newSignature",

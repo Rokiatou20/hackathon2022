@@ -14,7 +14,7 @@ import bgImage from "assets/images/bg-sign-up-cover.jpeg";
 
 import Camera from "./Camera";
 
-function Webcam() {
+function LecteurQR() {
   return (
     <CoverLayout image={bgImage}>
       <Card sx={{ p: 2, mt: 2, ml: -20, minWidth: 600, backgroundColor: "#247dea" }}>
@@ -23,4 +23,4 @@ function Webcam() {
     </CoverLayout>
   );
 }
-export default Webcam;
+export default LecteurQR;
