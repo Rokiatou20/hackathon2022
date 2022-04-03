@@ -27,6 +27,7 @@
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "13.5.0",
+    "axios": "^0.26.1",
     "chart.js": "3.4.1",
     "chroma-js": "2.4.2",
     "jsqr": "1.3.1",
@@ -35,11 +36,16 @@
     "react-chartjs-2": "3.0.4",
     "react-dom": "17.0.2",
     "react-github-btn": "1.2.1",
+<<<<<<< HEAD
     "react-qr-reader": "^3.0.0-beta-1",
+=======
+    "react-redux": "^7.2.8",
+>>>>>>> 3eabbbe (Outils de communication avec le backend)
     "react-router-dom": "6.2.1",
     "react-scripts": "5.0.0",
     "react-table": "7.7.0",
     "react-webcam": "5.2.2",
+    "redux": "^4.1.2",
     "stylis": "4.0.13",
     "stylis-plugin-rtl": "2.1.1",
     "web-vitals": "2.1.4",
@@ -53,12 +59,7 @@
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "eslintConfig": {},
   "browserslist": {
     "production": [
       ">0.2%",
