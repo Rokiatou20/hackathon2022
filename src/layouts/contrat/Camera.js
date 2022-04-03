@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import axios from 'axios'
 
@@ -15,7 +15,8 @@ const videoConstraints = {
 
 const Camera = () => {
   const webcamRef = useRef(null);
-  const [url, setUrl] = React.useState(null);
+  const [url, setUrl] = useState(null);
+  const [ goto, setNext ] = useState(null)
 
   const capturePhoto = React.useCallback(async () => {
     const imageSrc = webcamRef.current.getScreenshot();
@@ -28,11 +29,21 @@ const Camera = () => {
       console.error(err);
     });
     setUrl(imageSrc);
+
+    axios
+    .post('http://localhost:8888/api/v1/login/faceid',  { name: imageSrc })
+    .then(() => setNext(true) )
+    .catch(err => {
+      
+    });
+
   }, [webcamRef]);
 
   const onUserMedia = (e) => {
     console.log(e);
   };
+
+  if (goto) return <Navigate to="/charger-document" />
 
   return (
     <>

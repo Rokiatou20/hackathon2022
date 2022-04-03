@@ -100,7 +100,7 @@ const routes = [
   {
     name: "newSignature",
     key: "newSignature",
-    route: "/nouvelle-signature",
+    route: "/charger-document",
     component: <NewSignature />,
   },
 ];
