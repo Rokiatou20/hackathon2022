@@ -13,19 +13,28 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {BrowserRouter} from "react-router-dom";
+import withReduxFeatures from './withReduxFeatures';
+import App from './App';
+
+import * as serviceWorker from './serviceWorker';
+
 
 // Material Dashboard 2 React Context Provider
 import { MaterialUIControllerProvider } from "context";
+/** Wrap App component with store providers */
+const WrappedApp = withReduxFeatures(App);
 
 ReactDOM.render(
   <BrowserRouter>
     <MaterialUIControllerProvider>
-      <App />
+      <WrappedApp />
     </MaterialUIControllerProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
+
+
+serviceWorker.unregister();
